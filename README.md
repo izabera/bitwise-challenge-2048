@@ -1,10 +1,38 @@
-# [The Bitwise Challenge: 2048](https://github.com/zesterer/the-bitwise-challenge)
+# [The Bitwise Challenge][bitwise-challenge]: 2048
 
-This is an implementation of the classic 2048 game in your terminal:
-![image](https://github.com/user-attachments/assets/f67ae1cc-c6f2-4d31-bc52-8316348f555b)
+<div align="center">
+    <a href="https://github.com/zesterer/the-bitwise-challenge">
+        <picture>
+            <img src="banner.png" alt="A screenshot of the terminal playing the 2048 game." width="600" />
+        </picture>
+    </a>
+    <div align="center">
+        <em>A terminal implementation of the classic 2048 game.</em>
+        <br>
+        <em>
+        Written in Bash, <a href="https://github.com/zesterer/the-bitwise-challenge">with only 64 bits of state</a>.
+        </em>
+        <br>
+        <br>
+    </div>
+</div>
 
-Share your game state with friends by just sending them a number!
+Copy and paste this command to play:
 
-If the `$STATE` env variable isn't set, it generates a fresh random seed.
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/izabera/bitwise-challenge-2048/develop/2048.bash)
+```
 
-Otherwise the board state and all future spawned cells will be deterministic.
+Or download the script and run it locally:
+
+```bash
+# curl -fsSL https://raw.githubusercontent.com/izabera/bitwise-challenge-2048/develop/2048.bash -o 2048.bash
+# chmod +x 2048.bash
+bash 2048.bash
+```
+
+If the `$STATE` environment variable isn't set, the game generates a fresh random seed. Otherwise, the board state and all future spawned cells will be deterministic.
+
+You can share your game state with friends by just sending them a number!
+
+[bitwise-challenge]: https://github.com/zesterer/the-bitwise-challenge
