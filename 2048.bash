@@ -11,22 +11,22 @@ cereal () {
     for i in {15..0}; do
         ((STATE=STATE*12+board[i]))
     done
-    ((STATE=STATE*99+seed))
+    ((STATE=STATE*99+(rng%99+99)%99))
 }
 
 decereal () {
     local i val=$1
     if ((val < 0)); then
         #      2^64%99=16                          99^-1 % 2^64
-        ((seed=(val%99+16+99)%99, val-=seed, val*=12670490878911611211))
+        ((rng=(val%99+16+99)%99, val-=rng, val*=12670490878911611211))
     else
-        ((seed=val%99, val/=99))
+        ((rng=val%99, val/=99))
     fi
     for i in {0..15}; do
         ((board[i]=(val%12+12)%12, val/=12))
     done
 }
-rand='rng=rng*6364136223846793005+1442695040888963407,(rng>>32)&0xffffffff'
+rand='rng=rng*17+19,(rng%99+99)%99'
 
 
 
@@ -66,7 +66,7 @@ draw () {
         done
         ((i<3)) && printf '\e[3B\e[24D'
     done
-    printf '\nSTATE=%u\e[K\r' "$STATE"
+    printf '\nSTATE=%u rng=%u\e[K\r' "$STATE" "$(((rng%99+99)%99))"
 }
 
 open () {
@@ -167,7 +167,7 @@ board=()
 if [[ $STATE ]]; then
     decereal "$STATE"
 else
-    ((seed=rng=RANDOM%99))
+    ((rng=(${rng-RANDOM}%99+99)%99))
     open
     open
 fi
