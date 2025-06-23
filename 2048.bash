@@ -70,7 +70,7 @@ draw () {
 }
 
 open () {
-    local i list
+    local i list=()
     for i in {0..15}; do
         ((board[i])) || list+=("$i")
     done
