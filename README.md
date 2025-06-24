@@ -1,7 +1,7 @@
 # [The Bitwise Challenge: 2048](https://github.com/zesterer/the-bitwise-challenge)
 
 This is an implementation of the classic 2048 game in your terminal:
-![image](https://github.com/user-attachments/assets/f67ae1cc-c6f2-4d31-bc52-8316348f555b)
+![image](banner.png)
 
 Share your game state with friends by just sending them a number!
 
