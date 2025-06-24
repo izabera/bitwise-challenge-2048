@@ -26,7 +26,7 @@ decereal () {
         ((board[i]=(val%12+12)%12, val/=12))
     done
 }
-rand='rng=rng*17+19,(rng%99+99)%99'
+rand='rng=(34*rng+40)%99'
 
 
 
@@ -66,7 +66,7 @@ draw () {
         done
         ((i<3)) && printf '\e[3B\e[24D'
     done
-    printf '\nSTATE=%u rng=%u\e[K\r' "$STATE" "$(((rng%99+99)%99))"
+    printf '\nSTATE=%u rng=%u\e[K\r' "$STATE" "$rng"
 }
 
 open () {
